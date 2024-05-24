@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom example 2</title>
+</head>
+<body>
+   
+
+
+</body>
+<script>
+    //here created a node and store it in div 
+    const div=document.createElement('div');
+    console.log(div);// check in the console for the creation 
+
+     // with these methods we can manupulate the properties of dom
+    div.className="div-container";
+    div.id="div-id";
+    div.innerText="this is a div container";
+    div.style.background='brown'
+    div.style.color='white'
+
+     //here by using the document object we can directly ad the elements that we created in the me
+     //memory to the dom tree. by using the appendChild() method.
+    document.body.appendChild(div);
+</script>
+
+</html>

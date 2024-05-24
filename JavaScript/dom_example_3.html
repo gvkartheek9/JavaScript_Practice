@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document object model manupulation in java Script</title>
+</head>
+<body>
+    <div class="div-container">
+        <div class="child-div-container">monday</div>
+        <div class="child-div-container">tuesday</div>
+        <div class="child-div-container">wednesday</div>
+        <div class="child-div-container">thursday</div>
+    </div>
+</body>
+
+<script>
+      const div=document.querySelector(".child-div-container");
+      console.log(div);
+      div.setAttribute("id","first-child-div")
+
+      //here it is overriding the text I had given
+      div.innerHTML="this is bad"
+      //here I had set it to monday    //In this way we can manupulate the text in the document directly .
+      div.innerText="set to monday";
+   
+      const div2=document.createElement('div');
+      console.log(div2);
+      div2.style.color='blue';
+      div2.setAttribute("id","newly-created");
+ 
+      div.innerText="I had been created and added to the original dom";
+      document.body.appendChild(div2)
+
+</script>
+</html>

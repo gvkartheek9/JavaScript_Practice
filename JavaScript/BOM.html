@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window Object Example</title>
+</head>
+<body>
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showPrompt()">Show Prompt</button></br></br></br>
+
+    <p>This is a Navigator object button</p>
+    <button onclick="showBrowserInfo()">Show Browser Info</button>
+
+
+</br></br></br>
+    <span>This is a location object buttons</span>
+    <button onclick="redirectToGoogle()">Redirect to Google</button>
+    <button onclick="reloadPage()">Reload Page</button>
+
+
+
+    <p>This is a history object </p>
+
+    <button onclick="goBack()">Go Back</button>
+    <button onclick="goForward()">Go Forward</button>
+    <button onclick="goToPage(-2)">Go Back 2 Pages</button>
+    <button onclick="goToPage(2)">Go Forward 2 Pages</button>
+
+    <p>This is a screen object</p>
+
+    <button onclick="showScreenInfo()">Show Screen Info</button>
+
+
+    <script>
+        function showAlert() {
+            alert("This is an alert message!");
+        }
+
+        function showPrompt() {
+            let name = prompt("Please enter your name:", "Harry Potter");//message,defaultText//
+            if (name) {
+                alert("Hello, " + name + "!");
+            }
+        }
+
+        //---------------------------------------------------
+        //navigator object 
+
+        function showBrowserInfo() {
+            let info = "Browser Name: " + navigator.appName + "\n";
+            info += "Browser Version: " + navigator.appVersion + "\n";
+            info += "Platform: " + navigator.platform + "\n";
+            info += "User-Agent: " + navigator.userAgent;
+            alert(info);
+        }
+
+        //-------------------------------------------------------------------//
+        //location object The location object contains information about the current URL.
+
+        function redirectToGoogle() {
+            location.href = "https://www.google.com";
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+
+        //-----------------------------------------------------//
+        //history object 
+
+        function goBack() {
+            history.back();
+        }
+
+        function goForward() {
+            history.forward();
+        }
+
+        function goToPage(steps) {
+            history.go(steps);
+        }
+
+         //-----------------------------------------------------------
+          //Screen object 
+          function showScreenInfo() {
+            let info = "Screen Width: " + screen.width + "\n";
+            info += "Screen Height: " + screen.height + "\n";
+            info += "Available Width: " + screen.availWidth + "\n";
+            info += "Available Height: " + screen.availHeight + "\n";
+            info += "Color Depth: " + screen.colorDepth + "\n";
+            info += "Pixel Depth: " + screen.pixelDepth;
+            alert(info);
+        }
+
+    </script>
+</body>
+</html>

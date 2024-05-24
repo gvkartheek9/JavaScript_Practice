@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function emp(id, name, salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+
+        this.changeSalary = changeSalary;
+        //we can create methods in object but the before defining we need to add 
+        //property with the same name as method .
+        function changeSalary(otherSalary) {
+            this.salary = otherSalary;
+        }
+    }
+    e = new emp(103, "Sonoo Jaiswal", 30000);
+    document.write(e.id + " " + e.name + " " + e.salary);
+    e.changeSalary(45000);
+    document.write("<br>" + e.id + " " + e.name + " " + e.salary);
+
+    //----------------------------------------------------------------/
+    //inheritance of object 
+    class Moment extends Date {
+        constructor(year) {
+            super(year);
+        }
+    }
+    var m = new Moment("August 15, 1947 20:22:10");
+    document.writeln("<br>Year value:")
+    document.writeln(m.getFullYear());
+    document.writeln(m.getHours());
+
+    //-----------------------------------------------------------------------/
+    //polymorphism 
+    class A {
+        display() {
+            document.writeln("A is invoked<br>");
+        }
+    }
+    class B extends A {
+        display() {
+            document.writeln("B is invoked");
+        }
+    }
+
+    var a = new B()
+    document.writeln(a.display());
+
+    // var a = [new A(), new B()]
+    // a.forEach(function (msg) {
+    //     msg.display();
+    // });
+
+    //------------------------------------------------------------------------/
+
+    // Base class  //Example for the abstraction 
+    class Shape {
+        constructor(name) {
+            if (this.constructor === Shape) {
+                throw new Error("Cannot instantiate abstract class Shape");
+            }
+            this.name = name;
+        }
+
+        // Abstract-like method
+        calculateArea() {
+            throw new Error("Method 'calculateArea()' must be implemented.");
+        }
+
+        describe() {
+            return `This is a ${this.name}.`;
+        }
+    }
+
+    // Derived class for Circle
+    class Circle extends Shape {
+        constructor(radius) {
+            super('Circle');
+            this.radius = radius;
+        }
+
+        calculateArea() {
+            return Math.PI * this.radius * this.radius;
+        }
+    }
+
+    // Derived class for Rectangle
+    class Rectangle extends Shape {
+        constructor(width, height) {
+            super('Rectangle');
+            this.width = width;
+            this.height = height;
+        }
+
+        calculateArea() {
+            return this.width * this.height;
+        }
+    }
+
+    // Usage
+    const circle = new Circle(5);
+    console.log(circle.describe()); // This is a Circle.
+    console.log(circle.calculateArea()); // 78.53981633974483
+
+    const rectangle = new Rectangle(4, 6);
+    console.log(rectangle.describe()); // This is a Rectangle.
+    console.log(rectangle.calculateArea()); // 24
+
+    //-----------------------------------------------------------------------/
+
+
+
+</script>
+
+</html>

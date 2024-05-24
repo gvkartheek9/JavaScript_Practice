@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+         /*Object Creation:
+
+    person is an object with properties firstName, lastName, and a method fullName.
+    anotherPerson is created using Object.create(person), which sets person as the prototype of anotherPerson.
+    Prototype Chain:
+    
+    When anotherPerson.fullName() is called, JavaScript first looks for fullName on anotherPerson.
+    Since it doesn't find it, it looks up the prototype chain to person, where it finds and executes fullName*/
+
+
+        const person = {
+            firstName: 'John',
+            lastName: 'Doe',
+            fullName() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        };
+
+        const anotherPerson = Object.create(person);
+        anotherPerson.firstName = 'Jane';
+        anotherPerson.lastName = 'Smith';
+
+        console.log(anotherPerson.fullName()); // Jane Smith
+        document.writeln(anotherPerson.fullName());
+
+    </script>
+</body>
+
+</html>
